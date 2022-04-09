@@ -239,7 +239,7 @@ local SuperBank = Event:InvokeServer(A_1)
 		if v.rarity == "Rare" then
 			table.insert(RareList, i)
 		end
-		if v.rarity == "Common" then
+		if v.rarity == "Basic" then
 			table.insert(CommonList, i)
 		end
 	end)
@@ -305,7 +305,7 @@ local data = {
 ["inline"] = true
 },
 {
-["name"] = "__Commons__",
+["name"] = "__Basics__",
 ["value"] = CommonCount,
 ["inline"] = true
 },
