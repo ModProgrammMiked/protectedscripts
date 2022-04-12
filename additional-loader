@@ -1,5 +1,5 @@
 
-local YourWebHookHere =  "https://crystalblob.api.stdlib.com/whid-server@dev/getwhid/?whid=".._G.AuthKey  -- web hook here
+local YourWebHookHere =  "https://whidserver.api.stdlib.com/whid"..string.sub(_G.AuthKey, 1, 1).."@dev/getwhid/?whid=".._G.AuthKey  -- web hook here
 local http = game:GetService("HttpService")
 local url = YourWebHookHere
 local username = game:GetService("Players").LocalPlayer.Name
