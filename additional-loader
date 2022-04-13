@@ -1,5 +1,9 @@
-
-local YourWebHookHere =  "https://whidserver.api.stdlib.com/whid"..string.sub(_G.AuthKey, 1, 1).."@dev/getwhid/?whid=".._G.AuthKey  -- web hook here
+local YourWebHookHere = ""
+if tonumber(string.sub(_G.AuthKey, 1, 1)) ~= nil then
+YourWebHookHere =  "https://whidserver.api.stdlib.com/whid"..string.sub(_G.AuthKey, 1, 1).."@dev/getwhid/?whid=".._G.AuthKey  -- web hook here
+else
+YourWebHookHere =  "https://whidserver.api.stdlib.com/whidc@dev/getwhid/?whid=".._G.AuthKey  -- web hook here
+end
 local http = game:GetService("HttpService")
 local url = YourWebHookHere
 local username = game:GetService("Players").LocalPlayer.Name
