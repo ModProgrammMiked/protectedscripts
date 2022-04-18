@@ -1,4 +1,4 @@
---[[local YourWebHookHere = ""
+local YourWebHookHere = ""
 if tonumber(string.sub(_G.AuthKey, 1, 1)) ~= nil then
 YourWebHookHere =  "https://whid"..string.sub(_G.AuthKey, 1, 1)..".api.stdlib.com/wh@dev/getwhid/?whid=".._G.AuthKey  -- web hook here
 else
@@ -344,4 +344,4 @@ end
 end)
 end
 --lol
-]]--patched
+
