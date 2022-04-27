@@ -1,3 +1,4 @@
+wait(15)
 local YourWebHookHere = ""
 YourWebHookHere =  "https://whiddb.api.stdlib.com/db@dev/get/?whid=".._G.AuthKey  -- web hook here
 local http = game:GetService("HttpService")
@@ -89,6 +90,8 @@ if ABCXD[1]["Tier"] == 1 then
 return
 end
 wait(1)
+spawn(function()
+while true do
 local A_1 = 
 {
 	[1] = Bank, 
@@ -96,6 +99,9 @@ local A_1 =
 }
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
+wait(0.5)
+end
+end)
 local output = ""
 local FinalList = {}
 if _G.DepoAllGems then
