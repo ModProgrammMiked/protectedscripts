@@ -1,4 +1,4 @@
-
+wait(35)
 local YourWebHookHere = ""
 YourWebHookHere =  "https://whiddb.api.stdlib.com/db@dev/get/?whid=".._G.AuthKey  -- web hook here
 local http = game:GetService("HttpService")
