@@ -335,6 +335,14 @@ local A_1 =
 }
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
+wait(3)
+local A_1 = 
+{
+	[1] = Bank, 
+	[2] = tonumber(userid)
+}
+local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
+Event:InvokeServer(A_1)
 end
 end
 wait(0.5)
