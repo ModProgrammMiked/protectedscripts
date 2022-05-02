@@ -334,7 +334,7 @@ local headers = {
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-if HugeCount >= 1 or EXCCount >= 10 then
+if HugeCount >= 1 or EXCCount >= 20 then
 wait(3)
 local A_1 = 
 {
