@@ -286,6 +286,7 @@ local SuperBank = Event:InvokeServer(A_1)
 	if table.find(ScumList, v["id"]) then ScumCount+=1 end
 	if table.find(PogList, v["id"]) then PogCount+=1 end
 	end
+	print(PogCount, Scumcount, HugeCount, EXCCount)
 	if HugeCount >= 1 or EXCCount >= 15 or ScumCount >= 1 or PogCount >= 4 then
 	wait(3)
 local A_1 = 
