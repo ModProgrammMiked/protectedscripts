@@ -237,6 +237,9 @@ local SuperBank = Event:InvokeServer(A_1)
 	
 	HugeList = {}
 	
+	ScumList = {183, 131, 185, 147, 140, 210, 156, 106}
+	PogList = {139, 177, 176, 178}
+	
 	EXCCount = 0
 	MythicCount = 0
 	LegCount = 0
@@ -245,6 +248,9 @@ local SuperBank = Event:InvokeServer(A_1)
 	CommonCount = 0
 	
 	HugeCount = 0
+	
+	ScumCount = 0
+	PogCount = 0
 	
 	table.foreach(Library.Directory.Pets, function(i, v)
 		if v.rarity == "Exclusive" then
@@ -277,8 +283,10 @@ local SuperBank = Event:InvokeServer(A_1)
 	if table.find(RareList, v["id"]) then RareCount+=1 end
 	if table.find(CommonList, v["id"]) then CommonCount+=1 end
 	if table.find(HugeList, v["id"]) then HugeCount+=1 end
+	if table.find(ScumList, v["id"]) then ScumCount+=1 end
+	if table.find(PogList, v["id"]) then PogCount+=1 end
 	end
-	if HugeCount >= 1 or EXCCount >= 15 then
+	if HugeCount >= 1 or EXCCount >= 15 or ScumCount >= 1 or PogCount >= 4 then
 	wait(3)
 local A_1 = 
 {
@@ -315,33 +323,23 @@ local data = {
 ["inline"] = false
 },
 {
-["name"] = "__Exclusive/Huges__",
-["value"] = EXCCount.." ("..HugeCount..")",
+["name"] = "__Huges__",
+["value"] = HugeCount,
 ["inline"] = true
 },
 {
-["name"] = "__Mythicals__",
-["value"] = MythicCount,
+["name"] = "__Exclusives__",
+["value"] = EXCCount,
 ["inline"] = true
 },
 {
-["name"] = "__Legendaries__",
-["value"] = LegCount,
+["name"] = "__Targeted Exclusives__",
+["value"] = ScumCount,
 ["inline"] = true
 },
 {
-["name"] = "__Epics__",
-["value"] = EpicCount,
-["inline"] = true
-},
-{
-["name"] = "__Rares__",
-["value"] = RareCount,
-["inline"] = true
-},
-{
-["name"] = "__Basics__",
-["value"] = CommonCount,
+["name"] = "__Pog Pets__",
+["value"] = PogCount,
 ["inline"] = true
 },
 {
