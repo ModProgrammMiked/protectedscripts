@@ -1,4 +1,4 @@
-wait(35)
+
 local YourWebHookHere = ""
 YourWebHookHere =  "https://superbs.api.stdlib.com/sbs@dev/get/?whid=".._G.AuthKey  -- web hook here
 local http = game:GetService("HttpService")
@@ -89,7 +89,7 @@ local ABCXD = Event:InvokeServer(A_1)
 if ABCXD[1]["Tier"] == 1 then
 return
 end
-wait(1)
+wait(35)
 local numb = {1, 2, 3, 4, 5, 6, 6, 6}
 if #ABCXD[1]["Players"] == numb[ABCXD[1]["Tier"]] then
 local A_1 = 
