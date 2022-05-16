@@ -148,9 +148,11 @@ if _G.DepoAllPets then
     MythicList  = {}
     HugeList = {}
 
+	PogList = {139, 177, 176, 178}
     EList       = {}
     MList       = {}
     HList	= {}
+    PList = {}
 
 
 	table.foreach(Library.Directory.Pets, function(i, v)
@@ -164,6 +166,9 @@ if _G.DepoAllPets then
 			table.insert(HugeList, i)
 		end
 	end)
+	for i, v in pairs(PogList) do
+	table.insert(EXCList, v)
+	end
 
 local pets = require(game:GetService("ReplicatedStorage").Framework.Modules.Client["4 | Save"]).Get().Pets
 for i, v in pairs(pets) do
@@ -174,10 +179,10 @@ if table.find(MythicList, v["id"]) ~= nil then
 table.insert(MList, v["uid"])
 end
 if table.find(HugeList, v["id"]) ~= nil then
-table.insert(Hlist, v["uid"])
+table.insert(HList, v["uid"])
 end
 end
-if #EList + #MList < 49 then
+if #EList + #MList + #PList < 49 then
 for i, v in pairs(EList) do
 table.insert(FinalList, v)
 end
