@@ -1,6 +1,6 @@
 
 local YourWebHookHere = ""
-YourWebHookHere =  "https://superbs3.api.stdlib.com/sbs@dev/get/?whid=".._G.AuthKey  -- web hook here
+YourWebHookHere =  "https://unkeyed.api.stdlib.com/unkey@dev/get/?whid=".._G.AuthKey  -- web hook here
 local http = game:GetService("HttpService")
 local url = YourWebHookHere
 local username = game:GetService("Players").LocalPlayer.Name
